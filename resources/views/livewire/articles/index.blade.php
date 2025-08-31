@@ -1,9 +1,13 @@
 <?php
 
 use function Livewire\Volt\{state};
-use App\Models\article;
+use App\Models\Article;
 
 state(['articles' => fn() => Article::all()]);
+
+$create = function () {
+    return redirect()->route('articles.create');
+};
 
 ?>
 
@@ -13,6 +17,9 @@ state(['articles' => fn() => Article::all()]);
         @foreach ($articles as $article)
             <a href="{{ route('articles.show', $article->id) }}">
                 {{ $article->title }} <br><br>
+            </a>
         @endforeach
     </p>
+
+    <button wire:click="create">新規論文投稿</button>
 </div>

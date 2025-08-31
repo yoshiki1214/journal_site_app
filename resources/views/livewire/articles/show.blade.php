@@ -1,13 +1,13 @@
 <?php
 
 use function Livewire\Volt\{state};
-use \App\Models\article;
+use \App\Models\Article;
 
 state(['article' => fn(Article $article) => $article]);
 
 //一覧へ戻る
 $index = function(){
-    return redirect()->route('articles.index', $this->article);
+    return redirect()->route('articles.index');
 };
 
 ?>
